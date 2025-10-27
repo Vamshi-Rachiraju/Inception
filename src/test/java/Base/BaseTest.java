@@ -20,7 +20,7 @@ protected void setUp() {
         driver = new ChromeDriver();
         System.out.println("base: " +driver);
         driver.manage().window().maximize();
-        driver.get("https://www.google.com");
+        
        
     }
 
@@ -28,7 +28,7 @@ protected void setUp() {
 	
     public void tearDown() {
         if (driver != null) {
-            driver.quit();
+          //  driver.quit();
         }
     }
 }

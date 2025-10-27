@@ -1,14 +1,18 @@
 package AVPortal;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import Base.BaseTest;
+import pageObjects.AVLoginPage;
 
 @Test
 public class AVLogin extends BaseTest{
 
-	
-	public void testLogin() {
+	@Test(dataProvider = "loginData",dataProviderClass = utils.ExcelDataProvider.class)
+	public void testLogin(String username, String password) {
 		System.out.println("login: "+driver);
-		System.out.println("Helo");
+		driver.get("https://qa-av-portal.ticmeetings.com/");
+        AVLoginPage loginPage = new AVLoginPage(driver);
+		loginPage.login(username, password);
 	}
 }
